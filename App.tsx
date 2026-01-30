@@ -10,6 +10,7 @@ import Login from './components/Login';
 import SupportChat from './components/SupportChat';
 import CasualChat from './components/CasualChat';
 import LiveConsultant from './components/LiveConsultant';
+import About from './components/About';
 
 const DEFAULT_VITALS: VitalityStats = {
   energy: 85,
@@ -36,6 +37,7 @@ const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('theme_preference') === 'dark' || localStorage.getItem('theme_preference') === null);
   const [showCelebration, setShowCelebration] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   // ROBUST KEY CHECK
   const isApiReady = useMemo(() => {
@@ -156,12 +158,13 @@ const App: React.FC = () => {
         userProfile={userProfile}
         onSearchClick={() => setSearchOpen(true)}
         onLiveClick={() => setCurrentView({ type: 'live' })}
+        onAboutClick={() => setAboutOpen(true)}
         isApiReady={isApiReady}
       />
       
       <main className="w-full mx-auto relative">
         {currentView.type === 'dashboard' ? (
-          <Dashboard progress={progress} unlockedDay={unlockedDay} onSelectDay={(n) => setCurrentView({ type: 'day', dayNum: n })} onOpenSupport={() => setCurrentView({ type: 'support' })} onUpdateVitals={updateVitals} />
+          <Dashboard progress={progress} unlockedDay={unlockedDay} onSelectDay={(n) => setCurrentView({ type: 'day', dayNum: n })} onOpenSupport={() => setCurrentView({ type: 'support' })} onUpdateVitals={updateVitals} onAboutClick={() => setAboutOpen(true)} />
         ) : currentView.type === 'day' ? (
           <DayDetails day={progress.days.find(d => d.dayNumber === currentView.dayNum)!} onBack={() => setCurrentView({ type: 'dashboard' })} onToggleTask={() => {}} onUpdateMistakes={() => {}} onAnalyzeMistakes={() => {}} onDayComplete={() => setShowCelebration(true)} />
         ) : currentView.type === 'live' ? (
@@ -179,6 +182,7 @@ const App: React.FC = () => {
         </div>
       )}
 
+      {aboutOpen && <About onClose={() => setAboutOpen(false)} />}
       <CasualChat />
       {showCelebration && <Confetti />}
     </div>
