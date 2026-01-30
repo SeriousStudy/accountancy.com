@@ -39,7 +39,7 @@ const Dashboard: React.FC<DashboardProps> = ({ progress, unlockedDay, onSelectDa
         <div className={`col-span-12 xl:col-span-9 p-10 sm:p-20 rounded-[3rem] border apple-card relative overflow-hidden flex flex-col justify-between ${isDark ? 'bg-zinc-950 border-white/5' : 'bg-white border-black/5 shadow-2xl'}`}>
           <div className="relative z-10">
             <div className="flex items-center space-x-4 mb-12 sm:mb-16">
-               <span className="px-5 py-2 rounded-full bg-blue-600 text-[9px] font-black text-white uppercase tracking-[0.3em] shadow-xl shadow-blue-600/30">Protocol v3.0</span>
+               <span className="px-5 py-2 rounded-full bg-blue-600 text-[9px] font-black text-white uppercase tracking-[0.3em] shadow-xl shadow-blue-600/30">MASTER ACCOUNTS.</span>
                <div className="h-px w-8 sm:w-12 bg-black/10 dark:bg-white/10"></div>
                <span className="text-[9px] font-black uppercase tracking-widest opacity-20 hidden sm:block">Accounting Mastery Suite</span>
             </div>
@@ -86,7 +86,7 @@ const Dashboard: React.FC<DashboardProps> = ({ progress, unlockedDay, onSelectDa
           </div>
 
           <div className="absolute right-[-8%] bottom-[-12%] text-[30rem] sm:text-[45rem] font-black opacity-[0.015] pointer-events-none tracking-tighter select-none leading-none">
-            {unlockedDay || 'A'}
+            {unlockedDay || 'M'}
           </div>
         </div>
 
@@ -191,11 +191,11 @@ const Dashboard: React.FC<DashboardProps> = ({ progress, unlockedDay, onSelectDa
 
       <footer className="text-center py-32 border-t border-black/5 dark:border-white/5">
          <div className="flex flex-col sm:flex-row items-center justify-center space-y-8 sm:space-y-0 sm:space-x-12 mb-12">
-            <button onClick={onAboutClick} className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40 hover:opacity-100 hover:text-blue-600 transition-all">ABOUT PROTOCOL</button>
+            <button onClick={onAboutClick} className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40 hover:opacity-100 hover:text-blue-600 transition-all">ABOUT MASTER ACCOUNTS.</button>
             <div className="hidden sm:block w-1 h-1 rounded-full bg-current opacity-20"></div>
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-20">PIYUSH PANDEY PROTOCOL</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-20">PIYUSH PANDEY ECOSYSTEM</span>
             <div className="hidden sm:block w-1 h-1 rounded-full bg-current opacity-20"></div>
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-20">EY ECOSYSTEM</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-20">FISCAL INTEL</span>
          </div>
          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 opacity-10">
             <span className="text-[9px] font-black uppercase tracking-[1em]">KPMG COMPLIANT</span>
