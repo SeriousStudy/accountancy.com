@@ -16,7 +16,7 @@ const About: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           <section className="text-center sm:text-left">
             <div className="inline-flex items-center space-x-3 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 mb-8">
               <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-              <span className="text-[10px] font-black uppercase tracking-widest text-blue-600">Protocol Architect Identified</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-blue-600">Lead Architect Identified</span>
             </div>
             <h2 className="text-6xl sm:text-8xl font-black tracking-tighter leading-[0.85] italic mb-6">PIYUSH <br/><span className="text-blue-600">PANDEY.</span></h2>
             <p className="text-lg sm:text-xl font-bold opacity-40 uppercase tracking-widest leading-none">Developer & Strategic Lead</p>
@@ -27,7 +27,7 @@ const About: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="space-y-2">
                 <h4 className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-500">The Mission</h4>
                 <p className="text-sm font-bold leading-relaxed opacity-60 italic">
-                  "Elite Accountancy Protocol v3.0 was forged to bridge the gap between academic theory and Big Four professional standards. We don't just solve papers; we build fiscal intuition."
+                  "MASTER ACCOUNTS. was forged to bridge the gap between academic theory and Big Four professional standards. We don't just solve papers; we build fiscal intuition."
                 </p>
               </div>
 
@@ -63,9 +63,9 @@ const About: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           </div>
 
           <div className="pt-16 border-t border-black/5 dark:border-white/5 text-center flex flex-col items-center space-y-4">
-             <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-black italic shadow-2xl shadow-blue-600/30">A</div>
+             <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-black italic shadow-2xl shadow-blue-600/30">M</div>
              <p className="text-[9px] font-black uppercase tracking-[0.8em] opacity-20">ESTABLISHED 2026 • PIYUSH PANDEY PROTOCOL</p>
-             <p className="text-[8px] font-bold opacity-10 uppercase tracking-widest">Digital Rights & Intelligence Logic Reserved</p>
+             <p className="text-[8px] font-bold opacity-10 uppercase tracking-widest">MASTER ACCOUNTS. Intelligence Logic Reserved</p>
           </div>
         </div>
       </div>
