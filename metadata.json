@@ -1,0 +1,12 @@
+
+{
+  "name": "Elite Accountancy 15-Day Bootcamp",
+  "version": "1.0.0",
+  "status": "Production Release",
+  "author": "Piyush Pandey Protocol",
+  "description": "The definitive Accountancy preparation ecosystem. AI-enhanced, reactive UX, and precision fiscal tools for elite student performance.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
