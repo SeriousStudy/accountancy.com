@@ -11,9 +11,12 @@ interface HeaderProps {
   quote: string;
   userProfile?: { name: string; picture: string } | null;
   onSearchClick: () => void;
+  onLiveClick: () => void;
+  onAboutClick: () => void;
+  isApiReady?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ points, rank, isDarkMode, setIsDarkMode, resetProgress, quote, userProfile, onSearchClick }) => {
+const Header: React.FC<HeaderProps> = ({ points, rank, isDarkMode, setIsDarkMode, resetProgress, quote, userProfile, onSearchClick, onLiveClick, onAboutClick, isApiReady = true }) => {
   const [liveUsers, setLiveUsers] = useState(742);
 
   useEffect(() => {
@@ -28,40 +31,67 @@ const Header: React.FC<HeaderProps> = ({ points, rank, isDarkMode, setIsDarkMode
 
   return (
     <header className={`sticky top-0 z-[100] w-full border-b transition-all duration-700 ${isDarkMode ? 'bg-black/80 border-white/5' : 'bg-white/80 border-black/5'} backdrop-blur-3xl`}>
-      <div className="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
         <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => window.location.reload()}>
-          <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/30 group-hover:rotate-12 transition-transform">
-             <span className="text-white font-black italic text-xl">A</span>
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/30 group-hover:rotate-12 transition-transform">
+             <span className="text-white font-black italic text-lg sm:text-xl">A</span>
           </div>
           <div>
-            <h1 className="text-lg font-black tracking-tight leading-none uppercase">Elite Protocol</h1>
+            <h1 className="text-sm sm:text-lg font-black tracking-tight leading-none uppercase text-current">Elite Protocol</h1>
             <div className="flex items-center space-x-2 mt-1">
-               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-               <span className="text-[9px] font-black text-green-500 uppercase tracking-widest">{liveUsers} Candidates Live</span>
+               <span className={`w-1.5 h-1.5 rounded-full ${isApiReady ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></span>
+               <span className={`text-[8px] sm:text-[9px] font-black uppercase tracking-widest ${isApiReady ? 'text-green-500' : 'text-red-500'}`}>
+                 {isApiReady ? `${liveUsers} Live Now` : 'PROTOCOL OFFLINE'}
+               </span>
             </div>
           </div>
         </div>
 
-        <div className="hidden xl:flex items-center space-x-12 px-12 border-x border-black/5 dark:border-white/5 h-full">
+        <div className="hidden lg:flex items-center space-x-12 px-12 border-x border-black/5 dark:border-white/5 h-full">
            <div className="text-center">
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-30">Analytical XP</p>
-              <p className="text-xl font-black tabular-nums text-blue-600">{points}</p>
+              <p className="text-[9px] font-black uppercase tracking-[0.3em] opacity-30 text-current">Analytical XP</p>
+              <p className="text-lg font-black tabular-nums text-blue-600 leading-none mt-1">{points}</p>
            </div>
            <div className="text-center">
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-30">Current Rank</p>
-              <p className="text-xl font-black uppercase tracking-tight">{rank}</p>
+              <p className="text-[9px] font-black uppercase tracking-[0.3em] opacity-30 text-current">Current Rank</p>
+              <p className="text-lg font-black uppercase tracking-tight text-current leading-none mt-1">{rank}</p>
            </div>
-           <p className="text-[10px] font-bold uppercase tracking-widest italic opacity-20 max-w-xs text-center leading-relaxed">"{quote}"</p>
         </div>
 
-        <div className="flex items-center space-x-3 sm:space-x-6">
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <button 
+            onClick={onLiveClick}
+            disabled={!isApiReady}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all shadow-lg group ${isApiReady ? 'bg-red-600 hover:bg-red-700 text-white shadow-red-600/20' : 'bg-zinc-500/20 text-zinc-500 cursor-not-allowed grayscale'}`}
+          >
+            <span className={`w-2 h-2 rounded-full bg-white ${isApiReady ? 'animate-ping' : ''}`}></span>
+            <span className="text-[10px] font-black uppercase tracking-widest">Live Audit</span>
+          </button>
+          
           <MusicPlayer />
-          <div className="flex items-center space-x-2">
-            <button onClick={onSearchClick} className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${isDarkMode ? 'bg-white/5 hover:bg-white/10 text-white' : 'bg-black/5 hover:bg-black/10 text-black'}`}>🔍</button>
-            <button onClick={() => setIsDarkMode(!isDarkMode)} className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white shadow-xl'}`}>
+          
+          <div className="flex items-center space-x-1.5 sm:space-x-2">
+            <button 
+              onClick={onAboutClick} 
+              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${isDarkMode ? 'bg-white/5 hover:bg-white/10 text-white' : 'bg-black/5 hover:bg-black/10 text-black'}`}
+              title="Protocol Manifest"
+            >
+              ⓘ
+            </button>
+            <button 
+              onClick={onSearchClick} 
+              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${isDarkMode ? 'bg-white/5 hover:bg-white/10 text-white' : 'bg-black/5 hover:bg-black/10 text-black'}`}
+              title="Search System"
+            >
+              🔍
+            </button>
+            <button 
+              onClick={() => setIsDarkMode(!isDarkMode)} 
+              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white shadow-xl'}`}
+              title="Toggle Theme"
+            >
               {isDarkMode ? '☼' : '☾'}
             </button>
-            <button onClick={resetProgress} className="text-[10px] font-black uppercase tracking-widest px-6 h-11 rounded-full border border-red-500/30 text-red-500 hover:bg-red-500 hover:text-white transition-all">Reset</button>
           </div>
         </div>
       </div>
