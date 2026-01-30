@@ -34,14 +34,14 @@ const Header: React.FC<HeaderProps> = ({ points, rank, isDarkMode, setIsDarkMode
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
         <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => window.location.reload()}>
           <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/30 group-hover:rotate-12 transition-transform">
-             <span className="text-white font-black italic text-lg sm:text-xl">A</span>
+             <span className="text-white font-black italic text-lg sm:text-xl">M</span>
           </div>
           <div>
-            <h1 className="text-sm sm:text-lg font-black tracking-tight leading-none uppercase text-current">Elite Protocol</h1>
+            <h1 className="text-sm sm:text-lg font-black tracking-tight leading-none uppercase text-current">MASTER ACCOUNTS.</h1>
             <div className="flex items-center space-x-2 mt-1">
                <span className={`w-1.5 h-1.5 rounded-full ${isApiReady ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></span>
                <span className={`text-[8px] sm:text-[9px] font-black uppercase tracking-widest ${isApiReady ? 'text-green-500' : 'text-red-500'}`}>
-                 {isApiReady ? `${liveUsers} Live Now` : 'PROTOCOL OFFLINE'}
+                 {isApiReady ? `${liveUsers} Live Now` : 'SYSTEM OFFLINE'}
                </span>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ points, rank, isDarkMode, setIsDarkMode
             <button 
               onClick={onAboutClick} 
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${isDarkMode ? 'bg-white/5 hover:bg-white/10 text-white' : 'bg-black/5 hover:bg-black/10 text-black'}`}
-              title="Protocol Manifest"
+              title="Project Manifest"
             >
               ⓘ
             </button>
