@@ -167,7 +167,6 @@ const App: React.FC = () => {
         ) : currentView.type === 'day' ? (
           <DayDetails day={progress.days.find(d => d.dayNumber === currentView.dayNum)!} onBack={() => setCurrentView({ type: 'dashboard' })} onToggleTask={() => {}} onUpdateMistakes={() => {}} onAnalyzeMistakes={() => {}} onDayComplete={() => setShowCelebration(true)} />
         ) : currentView.type === 'live' ? (
-          <LiveConsultant onBack={() => setCurrentView({ type: 'dashboard' })} />
         ) : (
           <SupportChat onBack={() => setCurrentView({ type: 'dashboard' })} initialMessage={currentView.initialContext} />
         )}
