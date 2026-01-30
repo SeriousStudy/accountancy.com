@@ -9,7 +9,6 @@ import Confetti from './components/Confetti';
 import Login from './components/Login';
 import SupportChat from './components/SupportChat';
 import CasualChat from './components/CasualChat';
-import LiveConsultant from './components/LiveConsultant';
 import About from './components/About';
 
 const DEFAULT_VITALS: VitalityStats = {
