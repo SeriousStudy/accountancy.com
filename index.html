@@ -3,65 +3,61 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Accountancy Protocol 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>MASTER ACCOUNTS.</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         :root {
             --elite-blue: #0071e3;
-            --elite-dark-surface: #0a0a0a;
-            --elite-light-surface: #fbfbfd;
+            --elite-bg-dark: #000000;
+            --elite-bg-light: #fafafa;
         }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-font-smoothing: antialiased;
-            background-color: var(--elite-light-surface);
-            transition: background-color 0.8s ease;
+            overflow-x: hidden;
         }
-        .dark body { background-color: #000; }
         .mono { font-family: 'JetBrains Mono', monospace; }
 
+        /* Professional Animation Keyframes */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .stagger-in > * {
+            opacity: 0;
+            animation: slideInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .stagger-in > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-in > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-in > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-in > *:nth-child(4) { animation-delay: 0.4s; }
+
         .apple-card {
-            border-radius: 2rem;
-            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid rgba(0,0,0,0.05);
-            background: white;
         }
         .dark .apple-card {
-            background: #0d0d0d;
+            background: #0a0a0a;
             border-color: rgba(255,255,255,0.05);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
         .apple-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 20px 80px rgba(0,113,227,0.15);
+            transform: translateY(-10px) scale(1.005);
             border-color: var(--elite-blue);
+            box-shadow: 0 30px 60px -12px rgba(0, 113, 227, 0.15);
         }
 
-        /* Specialized Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        /* Glassmorphism */
+        .glass {
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
         }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-slide-up { animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 5px rgba(0,113,227,0.2); }
-            50% { box-shadow: 0 0 25px rgba(0,113,227,0.5); }
-        }
-        .glow-active { animation: glowPulse 2s infinite; }
 
         .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-    <script>window.process = { env: {} };</script>
     <script type="importmap">
     {
       "imports": {
@@ -74,10 +70,8 @@
       }
     }
     </script>
-<link rel="stylesheet" href="/index.css">
 </head>
-<body class="transition-colors duration-1000 light selection:bg-blue-500 selection:text-white">
+<body class="transition-colors duration-1000 selection:bg-blue-500 selection:text-white">
     <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
